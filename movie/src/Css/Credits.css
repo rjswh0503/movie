@@ -1,0 +1,21 @@
+
+.credits {
+    display: flex;
+    gap: 20px;
+    float: left;
+    
+    
+}
+
+.credits ul {
+    margin: 10px 4px 10px 10px;
+    border: 1px solid rgba(var(--lightGrey), 1);
+    padding-bottom: 10px;
+    border-radius: 8px;
+
+}
+
+.credits ul li {
+    list-style: none;
+    
+}
