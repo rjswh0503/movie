@@ -8,18 +8,13 @@ function MovieList() {
   useEffect(() => {
     axios
       .get(
-        'https://api.themoviedb.org/3/movie/popular?language=ko&region=kr&api_key=5704c5bb2dfd772259a3076e7be4a829'
+        'https://api.themoviedb.org/3/movie/popular?page=1&language=ko&region=kr&api_key=5704c5bb2dfd772259a3076e7be4a829'
       )
       .then((response) => {
         const movieData = response.data.results.map((movie) => ({
             id: movie.id,
             title: movie.title,
-            rating: movie.vote_average,
-            overview: movie.overview,
-            release_date: movie.release_date,
-            video: movie.video,
-
-            poster: `https://image.tmdb.org/t/p/w700${movie.poster_path}`,
+            poster: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         }));
         setMovies(movieData);
       })
@@ -36,8 +31,6 @@ function MovieList() {
           <Link to={`/movie/detail/${movie.id}/credits`}>
           <img src={movie.poster} alt={movie.title}/>
           </Link>
-          <p>{movie.overview}</p>
-          <p>{movie.rating}</p>
         </div>
       ))}
     </div>

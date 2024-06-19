@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useState, useEffect} from 'react';
 import {Link, useLocation,useParams} from 'react-router-dom';
 import '../../Css/Credits.css';
+import '../../index.css';
 
 
 const MovieCredits = () => {
@@ -34,19 +35,20 @@ const MovieCredits = () => {
 
     return(
         <div>
-            <h2>주요 출연진</h2>
+            <h3>주요 출연진</h3>
             <div className="credits">
-                
+            
                 {credits.map((credit) => (
                 <ul key={credit.id}>
-                <div className="profile">
+                <div className="rounded-full">
                     <Link to={`/movie/credits/detail/${credit.id}`}>
             
                     <img src={credit.profile_path} alt={credit.name}/>
                     </Link>
-                </div>
-                <li>{credit.name}</li>
-                <li>{credit.original_name}</li>
+                </div>    
+                <li><p>{credit.name}</p></li>
+                <li><p className="original_name">{credit.original_name}</p></li>
+                
         </ul>
       ))}
             </div>
